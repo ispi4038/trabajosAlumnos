@@ -42,8 +42,8 @@ Un trabajo **sin `demo`** se muestra igual, con el botón "Jugar" deshabilitado 
 
 ## Notas sobre los trabajos cargados
 
-- **Blackjack** — `ispi4038/2026-alumnos-juegoBlackjack`, demo en `luci1274.github.io/Juego_Blackjack`. El repositorio de la organización contiene el juego completo (`index.html`, `script.js`, `style.css`).
-- **Batalla Naval** — el fork de la organización `ispi4038/2026-alumnos-batallaNaval` quedó **vacío** (sólo `README.md`, sin código), así que la tarjeta apunta al repositorio real del alumno, que es el que sirve la demo en `kucich.github.io/BatallaNaval`.
+- **Blackjack** — fork `ispi4038/2026-alumnos-juegoBlackjack`, con el juego completo (`index.html`, `script.js`, `style.css`). La demo sale de su propio GitHub Pages: `ispi4038.github.io/2026-alumnos-juegoBlackjack`.
+- **Batalla Naval** — el enlace al repo es el fork `ispi4038/2026-alumnos-batallaNaval`, pero ese fork todavía tiene **sólo el README** (una rama, sin `gh-pages`): su Pages sirve la plantilla del README, no el juego. Por eso la demo apunta a `kucich.github.io/BatallaNaval`, que corre desde la rama `gh-pages` del repo original del alumno. Cuando el código se suba al fork, cambiar `demo` en `js/trabajos.js` a `https://ispi4038.github.io/2026-alumnos-batallaNaval/`.
 
 ## Probar en local
 
