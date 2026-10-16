@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trabajos de Alumnos — Galería</title>
+  <meta name="description" content="Galería de los juegos y trabajos prácticos publicados por los alumnos." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#galeria">Ir a la galería</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">ISP</span>
+        <div class="brand-text">
+          <strong>Trabajos de Alumnos</strong>
+          <span>Galería de juegos y proyectos</span>
+        </div>
+      </div>
+
+      <div class="header-tools">
+        <div class="search" role="search">
+          <label class="sr-only" for="q">Buscar por título, alumno o tecnología</label>
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+          </svg>
+          <input id="q" type="search" placeholder="Buscar trabajo, alumno o tecnología…" autocomplete="off" />
+          <button id="clear-q" class="clear-q" type="button" hidden aria-label="Borrar búsqueda">×</button>
+        </div>
+
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Cambiar tema" title="Cambiar tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <p class="eyebrow">Programación · 2026</p>
+      <h1 id="hero-title">Los trabajos que hicieron los alumnos</h1>
+      <p class="lede">
+        Cada tarjeta enlaza al código en GitHub y al juego funcionando en vivo.
+        Podés abrir cualquiera directamente acá mismo, sin salir de la página.
+      </p>
+    </section>
+
+    <section class="controls wrap" aria-label="Filtros de la galería">
+      <div class="chips" id="filtros" role="tablist" aria-label="Filtrar por categoría">
+        <!-- los chips se generan desde JS -->
+      </div>
+      <p class="results" id="resultados" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="galeria" class="wrap">
+      <div id="grid" class="grid"></div>
+      <div id="vacio" class="empty" hidden>
+        <strong>Sin resultados</strong>
+        <p>No encontramos trabajos con ese criterio. Probá con otra palabra.</p>
+        <button class="btn" id="reset-filtros" type="button">Ver todos</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Trabajos publicados por los alumnos · Código en <a href="https://github.com/ispi4038" target="_blank" rel="noopener noreferrer">github.com/ispi4038</a></p>
+    </div>
+  </footer>
+
+  <!-- Visor del trabajo (iframe a la demo en vivo) -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-head">
+        <div class="modal-heading">
+          <h2 id="modal-title">Trabajo</h2>
+          <p id="modal-sub" class="modal-sub"></p>
+        </div>
+        <div class="modal-actions">
+          <a id="modal-open" class="btn btn-ghost" href="#" target="_blank" rel="noopener noreferrer">
+            Abrir en pestaña nueva
+          </a>
+          <button id="modal-close" class="icon-btn" type="button" aria-label="Cerrar">×</button>
+        </div>
+      </header>
+      <div class="modal-body">
+        <div id="modal-loading" class="loading">
+          <span class="spinner" aria-hidden="true"></span>
+          <p>Cargando el trabajo…</p>
+        </div>
+        <iframe id="modal-frame" title="Vista previa del trabajo del alumno" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/trabajos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
