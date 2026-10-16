@@ -103,6 +103,11 @@
     </div>
   </div>
 
+  <!--
+    El catálogo NO está embebido en el HTML: se pide por GET a trabajos.json
+    desde js/trabajos.js. Para publicar un trabajo se edita ese JSON, nada más.
+    La galería debe servirse por HTTP (file:// bloquea el request).
+  -->
   <script src="js/trabajos.js"></script>
   <script src="js/app.js"></script>
 </body>

@@ -2,7 +2,7 @@
    GALERÍA DE TRABAJOS — lógica de la interfaz
    JavaScript vanilla, sin dependencias.
 
-   Lee los datos desde TRABAJOS / CATEGORIAS (js/trabajos.js) y arma:
+   Lee los datos desde trabajos.json (vía js/trabajos.js) y arma:
      - las tarjetas del grid,
      - el buscador (título, alumno, descripción y tecnologías),
      - los filtros por categoría,
@@ -12,6 +12,12 @@
 
 (function () {
   'use strict';
+
+  /* ---------- Catálogo ----------
+     Los completa el arranque, cuando resuelve window.CATALOGO
+     (js/trabajos.js carga trabajos.json).                              */
+  let CATEGORIAS = [];
+  let TRABAJOS = [];
 
   /* ---------- Referencias del DOM ---------- */
   const $grid       = document.getElementById('grid');
@@ -258,6 +264,28 @@
   });
 
   /* ---------- Arranque ---------- */
-  renderFiltros();
-  render();
+  async function iniciar() {
+    const datos = await window.CATALOGO;
+
+    if (!datos) {
+      $grid.innerHTML = '';
+      $resultados.textContent = '';
+      $vacio.hidden = false;
+      $vacio.querySelector('strong').textContent = 'No se pudo cargar el catálogo';
+      $vacio.querySelector('p').textContent =
+        'Falló el GET de trabajos.json. Verificá que exista junto a index.html y ' +
+        'que la galería se sirva por HTTP (por ejemplo: python3 -m http.server). ' +
+        'Abriendo el archivo con doble clic el navegador bloquea el request.';
+      $reset.hidden = true;
+      return;
+    }
+
+    CATEGORIAS = datos.categorias;
+    TRABAJOS = datos.trabajos;
+
+    renderFiltros();
+    render();
+  }
+
+  iniciar();
 })();
